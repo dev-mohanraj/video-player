@@ -38,7 +38,7 @@ export const Content = ({ filterData }) => {
   }, []);
 
   return (
-    <section className="flex justify-between h-full w-full overflow-hidden mobile-layout">
+    <section className="flex md:flex-row flex-col justify-between h-full md:w-full w-screen md:overflow-hidden overflow-auto mobile-layout">
       <div className="md:h-full md:w-3/5 w-full">
         <VideoPlayer source={currentVideo.sources} />
         <VideoInfo currentVideo={currentVideo} />
