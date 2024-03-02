@@ -12,7 +12,7 @@ export const VideoCard = ({
     <div
       id="card"
       className={`card p-2 flex overflow-hidden gap-4 border rounded h-32 m-2 cursor-pointer ${
-        activeItem === id ? "bg-gray-400" : "hover:bg-gray-100"
+        activeItem === id ? "bg-gray-300" : "hover:bg-gray-100 hover:shadow-md"
       }`}
       style={{ height: "8rem" }}
       onClick={onClick}

@@ -12,7 +12,7 @@ export const Search = ({ onSearch }) => {
   return (
     <input
       type="text"
-      placeholder={"Search"}
+      placeholder={"Search movie title"}
       value={searchValue}
       onChange={handleChange}
       className="border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500 text-black"
