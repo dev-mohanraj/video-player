@@ -11,6 +11,7 @@ export const VideoCard = ({
   return (
     <div
       id="card"
+      draggable
       className={`card p-2 flex overflow-hidden gap-4 border rounded h-32 m-2 cursor-pointer ${
         activeItem === id ? "bg-gray-300" : "hover:bg-gray-100 hover:shadow-md"
       }`}
@@ -31,10 +32,10 @@ export const VideoCard = ({
 };
 
 VideoCard.propTypes = {
-  sources: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  onClick: PropTypes.func,
-  activeItem: PropTypes.string,
   id: PropTypes.string,
+  onClick: PropTypes.func,
+  title: PropTypes.string,
+  sources: PropTypes.string,
+  activeItem: PropTypes.string,
+  description: PropTypes.string,
 };
