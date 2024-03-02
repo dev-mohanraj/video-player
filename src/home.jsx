@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
 import { MOCK_VIDEOS_INFO } from "./mocks";
 
-import { VideoPlayer } from "./components";
+import { Search, VideoCard, VideoPlayer } from "./components";
 
-const Header = () => {
+const Header = ({ onSearch }) => {
   return (
-    <header className="bg-gray-800 text-white p-4">
+    <header className="bg-gray-800 text-white p-4 flex items-center justify-between">
       <h1 className="text-xl font-bold">Video playlist</h1>
+      <Search onSearch={onSearch} />
     </header>
   );
+};
+
+Header.propTypes = {
+  onSearch: PropTypes.func,
 };
 
 const VideoInfo = ({ currentVideo }) => {
@@ -22,7 +28,14 @@ const VideoInfo = ({ currentVideo }) => {
   );
 };
 
-const Content = () => {
+VideoInfo.propTypes = {
+  currentVideo: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+  }),
+};
+
+const Content = ({ filterData }) => {
   const [currentVideo, setCurrentVideo] = useState(MOCK_VIDEOS_INFO[0]);
 
   useEffect(function init() {
@@ -30,14 +43,39 @@ const Content = () => {
   }, []);
 
   return (
-    <section className="flex justify-between h-full w-full">
-      <div className="h-full w-3/4">
+    <section className="flex justify-between h-full w-full overflow-hidden">
+      <div className="h-full w-3/5">
         <VideoPlayer source={currentVideo.sources} />
         <VideoInfo currentVideo={currentVideo} />
       </div>
-      <div className="h-full w-1/4">video list</div>
+      <div className="h-full w-2/5 overflow-y-auto gap-2 shadow-lg">
+        {filterData.length > 0 ? (
+          filterData.map((item) => (
+            <VideoCard
+              key={item.title}
+              onClick={() => {
+                setCurrentVideo(item);
+              }}
+              {...item}
+            />
+          ))
+        ) : (
+          <div className="w-full flex h-screen justify-center items-center">
+            No results
+          </div>
+        )}
+      </div>
     </section>
   );
+};
+
+Content.propTypes = {
+  filterData: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    })
+  ),
 };
 
 const Footer = () => {
@@ -52,10 +90,19 @@ const Footer = () => {
 };
 
 function VideoPlaylist() {
+  const [filterData, setFilterData] = useState(MOCK_VIDEOS_INFO);
+
+  const onSearch = (searchTerm) => {
+    let filterData = MOCK_VIDEOS_INFO.filter((item) =>
+      item.title.includes(searchTerm)
+    );
+    setFilterData(filterData);
+  };
+
   return (
     <div className={"h-screen flex flex-col justify-between"}>
-      <Header />
-      <Content />
+      <Header onSearch={onSearch} />
+      <Content filterData={filterData} />
       <Footer />
     </div>
   );
