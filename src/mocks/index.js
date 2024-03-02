@@ -8,6 +8,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Blender Foundation",
     thumb: "images/BigBuckBunny.jpg",
     title: "Big Buck Bunny",
+    id: "Big_Buck_Bunny",
   },
   {
     description:
@@ -18,6 +19,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Garage419",
     thumb: "images/VolkswagenGTIReview.jpg",
     title: "Volkswagen GTI Review",
+    id: "Volkswagen_GTI_Review",
   },
   {
     description:
@@ -28,6 +30,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerBlazes.jpg",
     title: "For Bigger Blazes",
+    id: "For_Bigger_Blazes",
   },
   {
     description: "The first Blender Open Movie from 2006",
@@ -37,6 +40,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Blender Foundation",
     thumb: "images/ElephantsDream.jpg",
     title: "Elephant Dream 2",
+    id: "Elephant_Dream_2",
   },
   {
     description:
@@ -47,6 +51,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerBlazes.jpg",
     title: "For Bigger Blazes 2",
+    id: "For_Bigger_Blazes2",
   },
   {
     description:
@@ -57,6 +62,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerEscapes.jpg",
     title: "For Bigger Escape",
+    id: "For_Bigger_Escape",
   },
   {
     description:
@@ -67,6 +73,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerFun.jpg",
     title: "For Bigger Fun",
+    id: "For_Bigger_Fun",
   },
   {
     description:
@@ -77,6 +84,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Garage419",
     thumb: "images/WeAreGoingOnBullrun.jpg",
     title: "We Are Going On Bullrun",
+    id: "We_Are_Going_On_Bullrun",
   },
   {
     description:
@@ -87,6 +95,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Garage419",
     thumb: "images/WhatCarCanYouGetForAGrand.jpg",
     title: "What care can you get for a grand?",
+    id: "What_care_can_you_get_for_a_grand?",
   },
   {
     description:
@@ -97,6 +106,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerJoyrides.jpg",
     title: "For Bigger Joyrides",
+    id: "For_Bigger_Joyrides",
   },
   {
     description:
@@ -107,6 +117,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Google",
     thumb: "images/ForBiggerMeltdowns.jpg",
     title: "For Bigger Meltdowns",
+    id: "For_Bigger_Meltdowns",
   },
   {
     description:
@@ -117,6 +128,7 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Garage419",
     thumb: "images/SubaruOutbackOnStreetAndDirt.jpg",
     title: "Subaru Outback On Street And Dirt",
+    id: "Subaru_Outback_On_Street_And_Dirt",
   },
   {
     description: "The first Blender Open Movie from 2006",
@@ -126,5 +138,6 @@ export const MOCK_VIDEOS_INFO = [
     subtitle: "By Blender Foundation",
     thumb: "images/ElephantsDream.jpg",
     title: "Elephant Dream",
+    id: "Elephant_Dream",
   },
 ];

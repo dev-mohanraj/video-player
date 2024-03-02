@@ -1,9 +1,19 @@
 import PropTypes from "prop-types";
 
-export const VideoCard = ({ sources, title, description, onClick }) => {
+export const VideoCard = ({
+  sources,
+  title,
+  description,
+  onClick,
+  activeItem,
+  id,
+}) => {
   return (
     <div
-      className="card p-2 flex overflow-hidden gap-4 border rounded h-32 m-2 cursor-pointer"
+      id="card"
+      className={`card p-2 flex overflow-hidden gap-4 border rounded h-32 m-2 cursor-pointer hover:bg-gray-100 ${
+        activeItem === id && "bg-gray-400"
+      }`}
       style={{ height: "8rem" }}
       onClick={onClick}
     >
@@ -25,4 +35,6 @@ VideoCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
+  activeItem: PropTypes.string,
+  id: PropTypes.string,
 };

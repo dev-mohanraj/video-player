@@ -19,11 +19,18 @@ Header.propTypes = {
 };
 
 const VideoInfo = ({ currentVideo }) => {
-  const { title, description } = currentVideo;
+  const { title, description, subtitle } = currentVideo;
   return (
-    <div>
-      <title>{title}</title>
-      <text>{description}</text>
+    <div className="bg-gray-600 text-white p-4 flex flex-col gap-4 h-full">
+      <div>
+        Movie Name :{" "}
+        <span className="font-thin">
+          {title} ({subtitle})
+        </span>
+      </div>
+      <div>
+        Description : <span className="font-thin">{description}</span>
+      </div>
     </div>
   );
 };
@@ -32,6 +39,7 @@ VideoInfo.propTypes = {
   currentVideo: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
   }),
 };
 
@@ -52,10 +60,11 @@ const Content = ({ filterData }) => {
         {filterData.length > 0 ? (
           filterData.map((item) => (
             <VideoCard
-              key={item.title}
+              key={item.id}
               onClick={() => {
                 setCurrentVideo(item);
               }}
+              activeItem={currentVideo.id}
               {...item}
             />
           ))
@@ -94,7 +103,7 @@ function VideoPlaylist() {
 
   const onSearch = (searchTerm) => {
     let filterData = MOCK_VIDEOS_INFO.filter((item) =>
-      item.title.includes(searchTerm)
+      item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilterData(filterData);
   };
