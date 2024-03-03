@@ -16,7 +16,7 @@ Deployed version available here https://video-playlist-seven.vercel.app/
 
 **Addons**
 
-- fullscreen mode, volume control, thumbnail previews and search
+- fullscreen mode, volume control and search
 - Responsive design for optimal viewing on various devices (tailwind).
 
 **Technologies Used**
