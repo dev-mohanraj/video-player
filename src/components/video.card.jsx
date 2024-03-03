@@ -2,14 +2,7 @@ import PropTypes from "prop-types";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-export const VideoCard = ({
-  sources,
-  title,
-  description,
-  onClick,
-  activeItem,
-  id,
-}) => {
+const SortableWrapper = ({ children, id }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
     useSortable({ id });
 
@@ -17,12 +10,38 @@ export const VideoCard = ({
     transform: CSS.Transform.toString(transform),
     transition,
   };
-
+  if (window.innerWidth < 768) {
+    return children;
+  }
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      {children}
+    </div>
+  );
+};
+
+SortableWrapper.propTypes = {
+  id: PropTypes.string,
+  children: PropTypes.node,
+};
+
+export const VideoCard = ({
+  onClick,
+  activeItem,
+  id,
+  title,
+  description,
+  sources,
+}) => {
+  return (
+    <SortableWrapper id={id}>
       <div
         id="card"
-        onClick={onClick}
+        onClick={(e) => {
+          console.log("e", e);
+          onClick();
+          e.stopPropagation();
+        }}
         className={`card p-2 flex overflow-hidden gap-4 border rounded h-32 m-2 cursor-pointer ${
           activeItem === id
             ? "bg-gray-300"
@@ -40,7 +59,7 @@ export const VideoCard = ({
           <div className="font-light line-clamp-3">{description}</div>
         </div>
       </div>
-    </div>
+    </SortableWrapper>
   );
 };
 
