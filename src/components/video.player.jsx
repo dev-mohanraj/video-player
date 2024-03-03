@@ -1,11 +1,16 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import PropTypes from "prop-types";
+import { CustomControls } from "./controls";
 
 function VideoPlayerComponent({ source }) {
+  const videoRef = useRef(null);
   return (
-    <video className="w-full md:h-6/7" controls muted playsInline autoPlay >
-      <source src={source} type="video/mp4" />
-    </video>
+    <div className="relative">
+      <video ref={videoRef} className="w-full md:h-6/7">
+        <source src={`${source}#t=2`} type="video/mp4" />
+      </video>
+      <CustomControls videoRef={videoRef} />
+    </div>
   );
 }
 
@@ -16,6 +21,5 @@ VideoPlayerComponent.propTypes = {
 VideoPlayerComponent.defaultProps = {
   source: "",
 };
-
 
 export const VideoPlayer = memo(VideoPlayerComponent);
