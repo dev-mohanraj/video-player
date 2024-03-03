@@ -10,6 +10,8 @@ import Mute from "../icons/mute.svg?react";
 import Volume from "../icons/volume.svg?react";
 import Expand from "../icons/expand.svg?react";
 
+import "./override.css";
+
 export const CustomControls = ({ videoRef }) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
@@ -51,7 +53,7 @@ export const CustomControls = ({ videoRef }) => {
   };
 
   return (
-    <div className="absolute bg-gray-200 bg-opacity-50 p-1 flex flex-col items-center bottom-0 w-full space-2">
+    <div className="absolute bg-slate-400 bg-opacity-50 p-1 flex flex-col items-center bottom-0 w-full space-2">
       <div className="w-full h-full hover:block">
         <Seeker
           handleSeek={handleSeek}
@@ -101,10 +103,7 @@ const Seeker = ({ handleSeek, currentTime, totalTime }) => {
       type="range"
       value={currentTime}
       onChange={handleSeek}
-      style={{
-        background: "linear-gradient(to right, #3182ce, #63b3ed)",
-      }}
-      className="appearance-none w-full h-1 bg-gray-200 rounded-lg outline-none"
+      className="bg-gray-800 appearance-none w-full h-1 rounded-lg outline-none slider"
     />
   );
 };
@@ -116,7 +115,7 @@ Seeker.propTypes = {
 };
 
 const PlayPause = ({ videoRef }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const togglePlayPause = () => {
     if (videoRef.current.paused) {
@@ -176,7 +175,6 @@ const VolumeControl = ({ videoRef }) => {
   const handleVolumeChange = (event) => {
     const newVolume = event.target.value;
     setVolume(newVolume);
-
     videoRef.current.volume = newVolume / 100;
   };
 
@@ -195,12 +193,12 @@ const VolumeControl = ({ videoRef }) => {
   return (
     <div className="flex items-center w-32">
       <div className="w-8 h-full mr-2">
-        <Show when={volume > 0}>
+        <Show when={parseInt(volume) > 0}>
           <span onClick={handleMute}>
             <Volume />
           </span>
         </Show>
-        <Show when={volume === 0}>
+        <Show when={parseInt(volume) === 0}>
           <span>
             <Mute onClick={handleUnMute} />
           </span>
@@ -212,10 +210,7 @@ const VolumeControl = ({ videoRef }) => {
         type="range"
         value={volume}
         onChange={handleVolumeChange}
-        style={{
-          background: "linear-gradient(to right, #3182ce, #63b3ed)",
-        }}
-        className="appearance-none w-full h-2 bg-gray-200 rounded-lg outline-none"
+        className="appearance-none w-full h-2 bg-gray-100 rounded-lg outline-none slider"
       />
     </div>
   );

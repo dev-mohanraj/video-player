@@ -1,0 +1,28 @@
+.slider {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: #1f2937;
+}
+
+/* --------------------------- webkit browsers */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: #1f2937;
+  overflow: visible;
+  cursor: pointer;
+}
+/* -------------------------- Firefox */
+.slider::-moz-range-thumb { 
+  -moz-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 10px;
+  background-color: #1f2937;
+  overflow: visible;
+  cursor: pointer;
+}

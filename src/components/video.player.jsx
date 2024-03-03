@@ -6,8 +6,8 @@ function VideoPlayerComponent({ source }) {
   const videoRef = useRef(null);
   return (
     <div className="relative">
-      <video ref={videoRef} className="w-full md:h-6/7">
-        <source src={`${source}#t=2`} type="video/mp4" />
+      <video ref={videoRef} className="w-full md:h-6/7" autoPlay>
+        <source src={source} type="video/mp4" />
       </video>
       <CustomControls videoRef={videoRef} />
     </div>
