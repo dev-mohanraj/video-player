@@ -64,7 +64,10 @@ export const Content = ({ filterData, onFilterOrderChange }) => {
   return (
     <section className="flex md:flex-row flex-col justify-between h-full md:w-full w-screen md:overflow-hidden overflow-auto mobile-layout">
       <div className="md:h-full md:w-3/5 w-full">
-        <VideoPlayer source={currentVideo?.sources} />
+        <VideoPlayer
+          key={currentVideo?.sources}
+          source={currentVideo?.sources}
+        />
         <VideoInfo currentVideo={currentVideo} />
       </div>
       <div className="h-full md:w-2/5 w-full overflow-y-auto gap-2 shadow-lg">
