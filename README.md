@@ -1,6 +1,6 @@
 # Video Playlist Application
 
-This project is a simple Video Playlist application built using React.js, Vite, Dndkit, **native video tag**, and Tailwind CSS. It allows users to drag and drop videos to order playlists, control playback, and enjoy seamless video streaming.
+This project is a simple Video Playlist application built using React.js, Vite, Dndkit, **native video tag**, and Tailwind CSS. It allows users to drag and drop videos to order playlists, control playback
 
 Deployed version available here https://video-playlist-seven.vercel.app/ 
 
