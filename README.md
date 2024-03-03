@@ -19,6 +19,17 @@ Deployed version available here https://video-playlist-seven.vercel.app/
 - fullscreen mode, volume control and search
 - Responsive design for optimal viewing on various devices (tailwind).
 
+**Performance Report**
+
+Web:
+
+<img width="1792" alt="Screenshot 2024-03-04 at 12 28 12 AM" src="https://github.com/dev-mohanraj/video-playlist/assets/84064669/abdd29e3-ca57-4ce6-b2bd-bd230cc829f5">
+
+Mobile:
+
+<img width="1792" alt="Screenshot 2024-03-04 at 12 28 37 AM" src="https://github.com/dev-mohanraj/video-playlist/assets/84064669/1390b98a-b324-4aca-a1d5-592e62a96438">
+
+
 **Technologies Used**
 
 - React.js: A JavaScript library for building user interfaces.
